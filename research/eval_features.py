@@ -89,9 +89,9 @@ def redundancy(df: pd.DataFrame, feats: list[str]) -> pd.DataFrame:
     sub = dev.sample(n=min(80_000, len(dev)), random_state=7)[feats]
     sub = sub.fillna(sub.median())
     corr = sub.corr(method="spearman").fillna(0.0)
-    dist = 1 - corr.abs()
-    np.fill_diagonal(dist.values, 0.0)
-    link = linkage(squareform(dist.values, checks=False), method="average")
+    dist = (1 - corr.abs()).to_numpy().copy()
+    np.fill_diagonal(dist, 0.0)
+    link = linkage(squareform(dist, checks=False), method="average")
     clusters = fcluster(link, t=0.1, criterion="distance")  # |rho| >= 0.9
     out = pd.DataFrame({"feature": feats, "cluster": clusters})
     sizes = out.groupby("cluster").transform("size")
