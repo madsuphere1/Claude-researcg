@@ -1,0 +1,36 @@
+target,desc,test_year,auc,n_test
+y_dir_1,next-bar direction,2018,0.5347644426961087,23746
+y_dir_5,5-bar direction,2018,0.5340211559353087,23746
+y_dir_10,10-bar direction,2018,0.51568289423247,23746
+y_tp_long,TP-before-SL long 1.5R/1R,2018,0.5126073461240845,22033
+y_tp_short,TP-before-SL short 1.5R/1R,2018,0.5205666254070174,21953
+mfe_16,16-bar MFE above train median,2018,0.5499688030081459,23686
+mae_16,16-bar MAE above train median,2018,0.5418339031632445,23686
+y_dir_1,next-bar direction,2020,0.5393989485433099,23626
+y_dir_5,5-bar direction,2020,0.5303949631947081,23626
+y_dir_10,10-bar direction,2020,0.5314408972631919,23626
+y_tp_long,TP-before-SL long 1.5R/1R,2020,0.5091213837821641,21502
+y_tp_short,TP-before-SL short 1.5R/1R,2020,0.512854763694168,21540
+mfe_16,16-bar MFE above train median,2020,0.5479519494800765,23567
+mae_16,16-bar MAE above train median,2020,0.5350205447852548,23567
+y_dir_1,next-bar direction,2022,0.5227554147285093,23643
+y_dir_5,5-bar direction,2022,0.5280134136237633,23643
+y_dir_10,10-bar direction,2022,0.5248551339727587,23643
+y_tp_long,TP-before-SL long 1.5R/1R,2022,0.5164540078231914,21309
+y_tp_short,TP-before-SL short 1.5R/1R,2022,0.5157948218244935,21337
+mfe_16,16-bar MFE above train median,2022,0.5656871447961909,23584
+mae_16,16-bar MAE above train median,2022,0.5516110349582883,23584
+y_dir_1,next-bar direction,2024,0.5161861114795343,23713
+y_dir_5,5-bar direction,2024,0.514542707013376,23713
+y_dir_10,10-bar direction,2024,0.5147474162677007,23713
+y_tp_long,TP-before-SL long 1.5R/1R,2024,0.5112665937094896,21220
+y_tp_short,TP-before-SL short 1.5R/1R,2024,0.5166912175771934,21393
+mfe_16,16-bar MFE above train median,2024,0.5545847734788072,23652
+mae_16,16-bar MAE above train median,2024,0.5582707589898986,23652
+y_dir_1,next-bar direction,2026,0.5234322355044119,11446
+y_dir_5,5-bar direction,2026,0.5242542184890587,11446
+y_dir_10,10-bar direction,2026,0.5049892158072085,11446
+y_tp_long,TP-before-SL long 1.5R/1R,2026,0.5329766173921822,10728
+y_tp_short,TP-before-SL short 1.5R/1R,2026,0.5238397102105501,10737
+mfe_16,16-bar MFE above train median,2026,0.5448945481271213,11401
+mae_16,16-bar MAE above train median,2026,0.5503320684025919,11401

@@ -311,6 +311,31 @@ def random_entry_baseline(df: pd.DataFrame, folds, n_sims=200, seed=7,
     return np.array(exps)
 
 
+def placebo_test(df: pd.DataFrame, folds: list[FoldPred], n_sims=100,
+                 seed=7) -> dict:
+    """Shuffle predicted probabilities within each fold-year (destroys
+    timing, preserves marginal distribution and hence trade frequency),
+    re-run the full simulation, and compare expectancies."""
+    rng = np.random.default_rng(seed)
+    exps, counts = [], []
+    for s in range(n_sims):
+        fake = []
+        for f in folds:
+            p = f.pred.copy()
+            perm = rng.permutation(len(p))
+            p["p_long"] = p["p_long"].to_numpy()[perm]
+            p["p_short"] = p["p_short"].to_numpy()[perm]
+            fake.append(FoldPred(f.test_year, f.threshold, f.val_exp_R, p))
+        t, _ = simulate(df, fake)
+        if len(t):
+            exps.append(float(t.r_mult.mean()))
+            counts.append(len(t))
+    return dict(n_sims=len(exps), mean_exp_R=float(np.mean(exps)),
+                std_exp_R=float(np.std(exps)),
+                mean_n_trades=float(np.mean(counts)),
+                exps=[round(e, 4) for e in exps])
+
+
 def main() -> None:
     df, feats = wf.load()
     folds = walk_forward_predictions(df, feats)
@@ -335,7 +360,14 @@ def main() -> None:
         t_, e_ = simulate(df, folds, threshold_shift=shift)
         thr_sens[shift] = perf_stats(t_, e_)
 
-    result = dict(stats=stats, bootstrap=boot,
+    placebo = placebo_test(df, folds) if len(trades) else {}
+    if placebo:
+        obs = stats["expectancy_R"]
+        exps = np.array(placebo["exps"])
+        placebo["p_value_geq_obs"] = float((exps >= obs).mean())
+    print("placebo:", {k: v for k, v in placebo.items() if k != "exps"})
+
+    result = dict(stats=stats, bootstrap=boot, placebo=placebo,
                   fold_thresholds={f.test_year: f.threshold for f in folds},
                   fold_val_exp={f.test_year: f.val_exp_R for f in folds},
                   cost_sensitivity={str(k): v for k, v in sens.items()},
