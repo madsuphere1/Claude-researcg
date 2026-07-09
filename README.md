@@ -1,1 +1,1 @@
-# Claude-researcg
+# Claude-research
