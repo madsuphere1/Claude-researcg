@@ -1,0 +1,227 @@
+{
+ "expanding": {
+  "mean_auc_long": 0.5195,
+  "mean_auc_short": 0.524,
+  "years_above_0p5_long": "11/13",
+  "sign_test_p_long": 0.01123046875,
+  "worst_year_auc_long": 0.4862,
+  "best_year_auc_long": 0.5476,
+  "by_year": {
+   "2014": {
+    "auc_long": 0.5344,
+    "auc_short": 0.5515,
+    "n": 21080
+   },
+   "2015": {
+    "auc_long": 0.5133,
+    "auc_short": 0.5354,
+    "n": 21035
+   },
+   "2016": {
+    "auc_long": 0.523,
+    "auc_short": 0.5408,
+    "n": 21633
+   },
+   "2017": {
+    "auc_long": 0.5058,
+    "auc_short": 0.5267,
+    "n": 21435
+   },
+   "2018": {
+    "auc_long": 0.5331,
+    "auc_short": 0.535,
+    "n": 21709
+   },
+   "2019": {
+    "auc_long": 0.5108,
+    "auc_short": 0.4933,
+    "n": 21337
+   },
+   "2020": {
+    "auc_long": 0.5415,
+    "auc_short": 0.5292,
+    "n": 20819
+   },
+   "2021": {
+    "auc_long": 0.5283,
+    "auc_short": 0.5317,
+    "n": 20876
+   },
+   "2022": {
+    "auc_long": 0.5222,
+    "auc_short": 0.4954,
+    "n": 21196
+   },
+   "2023": {
+    "auc_long": 0.5476,
+    "auc_short": 0.5362,
+    "n": 17588
+   },
+   "2024": {
+    "auc_long": 0.4862,
+    "auc_short": 0.496,
+    "n": 21303
+   },
+   "2025": {
+    "auc_long": 0.5096,
+    "auc_short": 0.5178,
+    "n": 21513
+   },
+   "2026": {
+    "auc_long": 0.4979,
+    "auc_short": 0.523,
+    "n": 10377
+   }
+  }
+ },
+ "rolling5": {
+  "mean_auc_long": 0.5121,
+  "mean_auc_short": 0.5185,
+  "years_above_0p5_long": "10/13",
+  "sign_test_p_long": 0.046142578125,
+  "worst_year_auc_long": 0.4857,
+  "best_year_auc_long": 0.5344,
+  "by_year": {
+   "2014": {
+    "auc_long": 0.5344,
+    "auc_short": 0.5515,
+    "n": 21080
+   },
+   "2015": {
+    "auc_long": 0.5133,
+    "auc_short": 0.5354,
+    "n": 21035
+   },
+   "2016": {
+    "auc_long": 0.5339,
+    "auc_short": 0.539,
+    "n": 21633
+   },
+   "2017": {
+    "auc_long": 0.5233,
+    "auc_short": 0.5227,
+    "n": 21435
+   },
+   "2018": {
+    "auc_long": 0.5049,
+    "auc_short": 0.5166,
+    "n": 21709
+   },
+   "2019": {
+    "auc_long": 0.5099,
+    "auc_short": 0.503,
+    "n": 21337
+   },
+   "2020": {
+    "auc_long": 0.5251,
+    "auc_short": 0.5152,
+    "n": 20819
+   },
+   "2021": {
+    "auc_long": 0.5078,
+    "auc_short": 0.515,
+    "n": 20876
+   },
+   "2022": {
+    "auc_long": 0.4956,
+    "auc_short": 0.4999,
+    "n": 21196
+   },
+   "2023": {
+    "auc_long": 0.5168,
+    "auc_short": 0.5248,
+    "n": 17588
+   },
+   "2024": {
+    "auc_long": 0.4989,
+    "auc_short": 0.4972,
+    "n": 21303
+   },
+   "2025": {
+    "auc_long": 0.4857,
+    "auc_short": 0.5035,
+    "n": 21513
+   },
+   "2026": {
+    "auc_long": 0.5083,
+    "auc_short": 0.5163,
+    "n": 10377
+   }
+  }
+ },
+ "rolling2": {
+  "mean_auc_long": 0.5012,
+  "mean_auc_short": 0.5044,
+  "years_above_0p5_long": "6/13",
+  "sign_test_p_long": 0.70947265625,
+  "worst_year_auc_long": 0.4684,
+  "best_year_auc_long": 0.5229,
+  "by_year": {
+   "2014": {
+    "auc_long": 0.5125,
+    "auc_short": 0.5136,
+    "n": 21080
+   },
+   "2015": {
+    "auc_long": 0.5115,
+    "auc_short": 0.5133,
+    "n": 21035
+   },
+   "2016": {
+    "auc_long": 0.5149,
+    "auc_short": 0.5097,
+    "n": 21633
+   },
+   "2017": {
+    "auc_long": 0.5185,
+    "auc_short": 0.5312,
+    "n": 21435
+   },
+   "2018": {
+    "auc_long": 0.4972,
+    "auc_short": 0.5014,
+    "n": 21709
+   },
+   "2019": {
+    "auc_long": 0.5229,
+    "auc_short": 0.5106,
+    "n": 21337
+   },
+   "2020": {
+    "auc_long": 0.5183,
+    "auc_short": 0.5404,
+    "n": 20819
+   },
+   "2021": {
+    "auc_long": 0.4977,
+    "auc_short": 0.5157,
+    "n": 20876
+   },
+   "2022": {
+    "auc_long": 0.4938,
+    "auc_short": 0.4898,
+    "n": 21196
+   },
+   "2023": {
+    "auc_long": 0.4947,
+    "auc_short": 0.5087,
+    "n": 17588
+   },
+   "2024": {
+    "auc_long": 0.4847,
+    "auc_short": 0.4784,
+    "n": 21303
+   },
+   "2025": {
+    "auc_long": 0.4684,
+    "auc_short": 0.4755,
+    "n": 21513
+   },
+   "2026": {
+    "auc_long": 0.4801,
+    "auc_short": 0.4687,
+    "n": 10377
+   }
+  }
+ }
+}

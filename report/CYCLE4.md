@@ -130,6 +130,46 @@ it manufactured 5× more trades and lost money on them, turning a
 −0.069R drift into a −0.111R bleed. That is the short-window failure
 mode in one cell: more confident, more active, more wrong.
 
+## The research cycle redone per window (the root cause, upstream of P&L)
+
+The P&L tables above answer "does the traded money differ by window."
+The operator then asked the deeper question: redo the *research cycle*
+itself — the foundational C1-BASE test ("does a predictive signal exist
+at all?") — for each window. `research/cycle3/window_research_cycle.py`
+computes out-of-sample walk-forward AUC by year on the G2 label, per
+window (same folds, same labels, only the training window differs):
+
+| Window | Mean AUC | Years > 0.5 | Sign-test p | Worst yr | Best yr |
+|---|---|---|---|---|---|
+| **Expanding** | **0.5195** | 11/13 | **0.011** | 0.486 | 0.548 |
+| Rolling-5 | 0.5121 | 10/13 | 0.046 | 0.486 | 0.534 |
+| Rolling-2 | **0.5012** | **6/13** | **0.709** | 0.468 | 0.523 |
+
+This is the cleanest result in the cycle. The signal doesn't just earn
+less money on shorter windows — **it ceases to exist**. Expanding shows
+a real, significant edge (AUC 0.5195, positive in 11 of 13 years,
+sign-test p=0.011). Rolling-5 is a degraded but still-detectable edge
+(p=0.046, right at the margin). Rolling-2 is **statistically
+indistinguishable from a coin** — mean AUC 0.5012, positive in only 6 of
+13 years, sign-test p=0.709 (i.e. this pattern is exactly what pure
+noise produces). The degradation is monotone: 0.5195 → 0.5121 → 0.5012,
+marching straight to 0.5.
+
+That is *why* the rolling P&L was negative — not bad luck, not costs, but
+the absence of any signal to trade. A 2-year window cannot resolve an
+AUC-0.52 edge because there isn't enough data in two years to separate a
+signal that faint from noise; the model fits the noise and trades it.
+This is the definitive refutation of the "too much history = underfit"
+premise: at this signal-to-noise, **history is what makes the signal
+visible at all**, and starving the model of it erases the very thing the
+research cycle was built to detect.
+
+(Note: mean AUC here is 0.5195 for expanding vs the 0.529 headline in
+C1-BASE because this uses the G2 barrier label — TP 3×ATR / SL 2×ATR /
+64-bar — not C1-BASE's baseline 1.5×/1× / 16-bar label. The cross-window
+comparison is apples-to-apples; the small absolute offset is the
+different target, and is not the point.)
+
 ## Verdict and what changes
 
 * **Screen verdict: rolling windows REFUTED on the exploratory slice.**
