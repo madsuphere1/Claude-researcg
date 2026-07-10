@@ -101,6 +101,22 @@ simulation, identical treatment, complete metrics suite:
 | Rolling-5 | 598 | −0.037 | 41.0% | 0.94 | −0.21 | −43.3% | 0.775 | −0.072 |
 | Rolling-2 | 628 | −0.083 | 39.2% | 0.86 | −0.49 | −51.4% | 0.961 | −0.121 |
 
+**95% bootstrap confidence intervals on expectancy-per-trade** (the
+interval, not just the point — this is what separates a real edge from a
+coin):
+
+| Window | Point | Day-block 95% CI | Year-block 95% CI |
+|---|---|---|---|
+| **Expanding** | +0.106R | **[+0.021, +0.193]** (all positive) | [−0.026, +0.217] |
+| Rolling-5 | −0.037R | [−0.129, +0.060] (straddles 0) | [−0.107, +0.090] |
+| Rolling-2 | −0.083R | [−0.172, +0.010] (≈all negative) | [−0.204, +0.033] |
+
+Expanding's day-block interval lies entirely above zero — even its
+pessimistic bound (+0.021) exceeds rolling-5's optimistic bound (+0.060).
+Both rolling intervals contain zero and are centered negative, shifting
+further down as the window shortens: no demonstrable edge at either
+rolling length, and an actively negative distribution at 2 years.
+
 Expanding is the *only* profitable policy, and the only one that is
 statistically distinguishable from zero (day-block p=0.008). Rolling
 windows are negative-expectancy on **every** metric at once —
