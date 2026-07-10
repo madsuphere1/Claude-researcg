@@ -1,0 +1,31 @@
+{
+ "exprs": {
+  "sym_0": "ema(body,16)",
+  "sym_1": "ema(body,4)",
+  "sym_2": "sum(r,4)",
+  "sym_3": "add(hl,sum(body,8),8)",
+  "sym_4": "ema(mul(std(imb,96),r,16),16)",
+  "sym_5": "ema(r,32)",
+  "sym_6": "div(ema(r,8),rv,192)",
+  "sym_7": "ema(body,32)",
+  "sym_8": "sum(body,8)",
+  "sym_9": "ema(mul(body,std(dnw,96),8),32)"
+ },
+ "2018": {
+  "baseline": 0.5181516761538055,
+  "baseline+sym": 0.5152443467339225,
+  "uplift": -0.0029073294198830313
+ },
+ "2022": {
+  "baseline": 0.529075448273605,
+  "baseline+sym": 0.5222233559857042,
+  "uplift": -0.006852092287900735
+ },
+ "2026": {
+  "baseline": 0.5274357448016646,
+  "baseline+sym": 0.5277729506806618,
+  "uplift": 0.00033720587899721544
+ },
+ "mean_uplift": -0.003140738609595517,
+ "verdict": "REJECT"
+}

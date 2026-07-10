@@ -18,11 +18,11 @@ failures — is reported at the pre-declared criterion.
 | H-A1 | Regimes | HMM vol-state gate improves net expectancy | **PARTIAL** — large improvement, not significant; persistence criterion failed | −0.105R → +0.053R (CI [−0.03, +0.14], p=0.12); dwell 1–2.5h not ≥1d |
 | H-B1 | Execution | Passive limit entry ≥ +0.10R ITT uplift | **PARTIAL** — uplift real but below bar | +0.088R (CI [0.06, 0.12]) at δ=0.1; total still −0.02R |
 | H-F1 | Targets | Vol forecast + OCO stop-brackets | **REJECTED** (strongly) | −0.457R, CI < 0; 35% whipsaws; worse than random gates |
-| H-D1 | Feature discovery | Symbolic search finds new signal | **ACCEPTED (statistically)** — one factor: short-horizon mean reversion | 19/20 survive Bonferroni, OOS IC ≈ −0.03; LGB uplift: see D1b |
+| H-D1 | Feature discovery | Symbolic search finds new signal | **STATISTICAL YES / ECONOMIC NO** — one factor (short-horizon mean reversion), already in the model | 19/20 survive Bonferroni, OOS IC ≈ −0.03; joint LGB uplift −0.0031 → REJECT |
 | H-I1 | Adaptation | Rolling windows / PSI-triggered retraining | **REJECTED** (both parts) | Expanding ≥ rolling everywhere; PSI shrinks while decay continues |
 | H-G1 | Sizing/Risk | Sizing reshapes, never creates | **CONFIRMED** | MAR 0.99→1.07 on gross stream; nothing rescues the negative stream |
 | H-E1 | Representation | Masked-GRU embeddings add AUC | **ACCEPTED (marginally)** | +0.0022 mean uplift (bar: 0.002), positive all 3 folds; economically nil |
-| X1 | Composite (exploratory) | Gate + geometry + limit entry | *pilot — see §11* | — |
+| X1 | Composite (exploratory) | Gate + geometry + limit entry | **PROMISING, UNPROVEN** — needs cycle-3 confirmation | +0.128R net; day-block p=0.02 but year-block p=0.10; 2016+2020 = 118% of profits |
 
 ---
 
@@ -156,10 +156,11 @@ screen 2010-11 vs 2012-13 with sign agreement; top 20 validated once on
 (p < 0.0025 each), but they all encode **one factor**: smoothed 0.5–8h
 returns with negative forward IC ≈ −0.03 — short-horizon mean reversion.
 Predicted move per σ of signal ≈ 1bp per 75min — far below friction as a
-standalone strategy. Joint model test (declared step 4): **+0.0011 mean
+standalone strategy. Joint model test (declared step 4): **−0.0031 mean
 AUC** when the accepted formulas are appended to the cycle-1 feature set
-(folds 2018/2022/2026) — below the +0.003 bar → **no incremental model
-value; the factor was already captured by hand-engineered features.**
+(folds 2018/2022/2026; negative in 2 of 3) → **REJECT for incremental
+model value: the factor was already captured by hand-engineered features,
+and duplicating it slightly degrades the model.**
 
 ## 7. H-I1 — Drift and adaptation (Track I)
 
@@ -213,7 +214,39 @@ little once hand features exist.
 
 ## 11. X1 composite pilot (exploratory — NOT a validated result)
 
-*(results below; see honesty note)*
+The three partial levers attack different terms of net expectancy, so
+their conjunction is the natural candidate strategy: **G2 geometry
+(TP 3×ATR / SL 2×ATR / 64 bars) + HMM vol-gate (causal filter, P>0.6)
++ limit entries (δ=0.1×ATR, 4-bar cancel, 1.25bp cost) + pre-weekend
+flatten + 10× leverage cap.** All components were individually
+pre-declared and separately validated; **their conjunction was formed
+after seeing cycle-2 results**, so this pilot is hypothesis-generating,
+not confirmatory.
+
+Result (even test years 2014–2026, 414 trades, 0.25/day):
+
+| Metric | Value |
+|---|---|
+| Net expectancy | **+0.128R/trade** |
+| Day-block bootstrap CI | [+0.006, +0.247], p(≤0) = 0.02 |
+| **Year-block bootstrap CI** | **[−0.084, +0.258], p(≤0) = 0.10** |
+| Win rate / PF | 47.6% / 1.24 |
+| Sharpe / max DD | 0.82 / −13.9% |
+| Exits | 205 SL · 178 TP · 20 timeout · 8 pre-gap · 3 same-bar |
+
+**The critical caveat is regime concentration**: 5 of 7 test years are
+individually negative; 2016 and 2020 — the two high-vol years — contribute
+118% of total R (the other five years sum to a net loss). A vol-gated
+strategy is *designed* to earn in vol-rich regimes, but with effectively
+2 profitable regime episodes the sample is far too thin to claim
+significance at the year level (p=0.10), and a year-level sign test cannot
+reject zero. **Status: promising, unproven.** The pre-registered cycle-3
+confirmation protocol: freeze this exact specification (no parameter may
+move), run nested re-training on odd test years 2015–2025 as a first
+robustness pass, and treat 2027+ data as the true out-of-sample test.
+Deployment assumptions if it confirms: ≈1.25bp effective cost on filled
+limits (maker-style execution), tolerance for multi-year flat/negative
+stretches between vol regimes, and ~0.25 trades/day utilisation.
 
 ## 12. Limitations
 
@@ -256,7 +289,16 @@ The market's message across both cycles is coherent: **the predictive
 signal is real, small, volatility-flavored, and the fight is against
 friction.** Every economically meaningful gain this cycle came from cost
 engineering (geometry, passive fills) or risk concentration (vol gating) —
-none from better prediction (D1, E1 added ≈nothing). At institutional
-friction (≤1.5bp) several configurations are already at or above water;
-at retail friction (≥2.5bp) no single validated lever suffices, and the
-composite's status is exploratory pending cycle-3 confirmation.
+none from better prediction (D1 and E1 added ≈nothing; D1's joint test was
+negative). Their conjunction (X1) is the first configuration in two cycles
+whose net-of-cost expectancy is positive with a sub-3% p-value at trade
+granularity — and the year-level analysis immediately disciplines that
+excitement: profits live in two vol regimes, and p=0.10 at year blocks.
+
+**Honest bottom line: no deployable edge is proven.** What cycle 2
+produced is (a) four clean rejections that close whole avenues (session
+reversion, stop-bracket vol monetization, rolling-window adaptation,
+drift-triggered retraining), (b) three quantified levers with mechanisms
+that replicate monotonically, and (c) one frozen composite specification
+whose confirmation or refutation is a single, pre-registered cycle-3
+experiment away.
