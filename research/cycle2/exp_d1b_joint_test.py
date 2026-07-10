@@ -56,11 +56,14 @@ def main() -> None:
                 pass
     print(f"rebuilt {len(new_cols)}/{len(want)} accepted formulas", flush=True)
 
-    add = pd.DataFrame(new_cols, index=df.index)
+    # LightGBM forbids JSON-special characters in feature names
+    renamed = {f"sym_{i}": v for i, v in enumerate(new_cols.values())}
+    out_names = dict(zip(renamed, new_cols))
+    add = pd.DataFrame(renamed, index=df.index)
     dfe = pd.concat([df, add], axis=1)
     lab = df["y_tp_long"].to_numpy()
     yrs = df.index.year
-    out = {"exprs": list(new_cols)}
+    out = {"exprs": out_names}
     ups = []
     for ty in FOLDS:
         te = np.flatnonzero(yrs == ty)
@@ -70,7 +73,7 @@ def main() -> None:
         tev = te[np.isfinite(lab[te])]
         r = {}
         for name, cols in (("baseline", feats),
-                           ("baseline+sym", feats + list(new_cols))):
+                           ("baseline+sym", feats + list(renamed))):
             mdl = lgb.train(PARAMS, lgb.Dataset(dfe[cols].iloc[tr], lab[tr].astype(int)),
                             num_boost_round=400)
             r[name] = float(roc_auc_score(lab[tev].astype(int),
