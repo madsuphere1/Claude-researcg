@@ -106,7 +106,8 @@ def simulate_composite(df, pred, thr_by_year, gate, a14s, m1arrs):
         equity *= 1 + pnl
         trades.append(dict(entry_time=pos["t_fill"], exit_time=idx[i],
                            side=pos["side"], reason=reason,
-                           pnl=pnl, r_mult=pnl / RISK, year=int(yrs[i])))
+                           pnl=pnl, r_mult=pnl / RISK, year=int(yrs[i]),
+                           bars=int(i - pos["i_fill"]), p=np.nan))
         pos = None
 
     for i in range(n):
@@ -147,7 +148,7 @@ def simulate_composite(df, pred, thr_by_year, gate, a14s, m1arrs):
                     tp_px = entry + side * TP_R_G2 * av
                     lev = min(RISK / (SL_R_G2 * av / entry), MAX_LEV)
                     pos = dict(side=side, entry=entry, sl=sl_px, tp=tp_px,
-                               lev=lev, expiry=i + HORIZON, t_fill=idx[i])
+                               lev=lev, expiry=i + HORIZON, t_fill=idx[i], i_fill=i)
                     same_bar_sl = (l[i] <= sl_px) if side == 1 else (h[i] >= sl_px)
                     pending = None
                     if same_bar_sl:

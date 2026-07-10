@@ -8,7 +8,12 @@ on XAUUSD 15-minute bars?**
 costs (+0.114R/trade gross → −0.105R/trade at 2.5bp round-trip). Breakeven
 ≈ 1.3bp. No tradeable retail edge was found.**
 
-Full findings: [report/REPORT.md](report/REPORT.md)
+Full findings:
+- Cycle 1 (edge existence): [report/REPORT.md](report/REPORT.md)
+- Cycle 2 (new-hypothesis discovery, 10 tracks): [report/CYCLE2.md](report/CYCLE2.md) —
+  4 clean rejections, 3 quantified levers (vol-gating, barrier geometry,
+  passive execution), 1 exploratory composite (+0.128R net, unproven at
+  year granularity) awaiting pre-registered cycle-3 confirmation.
 
 ## Layout
 
