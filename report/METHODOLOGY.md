@@ -177,3 +177,61 @@ cleared a production gate. The open frontier is measured execution cost
 (C3-002, needs a broker feed) and calendar time (C3-006, C3-008, need
 2027+ data). Every negative result above is a fence that keeps the next
 agent from re-paying for the same dead end.
+
+---
+
+## 7. How metrics must be chosen, evaluated, and combined (operator doctrine)
+
+This section is standing doctrine, adopted after the operator correctly
+rejected a Cycle 5 analysis that ranked performance metrics as flat,
+independent columns. Metrics are **not** independent columns. They are a
+coupled algebraic system — the operator's analogy is PV=nRT: you cannot
+vary one and hold the others fixed, because an equation of state binds
+them. Cycle 6 proved this on our own metrics and it is now a rule.
+
+**7.1 There is a hierarchy: primitives vs derived.** A handful of
+quantities are measured directly from the trade stream (primitives:
+win-rate p, avg-win W, avg-loss L, dispersion σ, downside σ_d, max
+drawdown, longest losing streak, skew, kurtosis, count N). Everything
+else is a **deterministic function** of those:
+expectancy = p·W+(1−p)·L; profit_factor = p·W/((1−p)|L|) ≡ omega;
+sharpe = expectancy/σ; sortino = expectancy/σ_d;
+calmar = total/|maxDD| ≡ recovery_factor. A derived metric **cannot
+carry information its primitives lack**. Analyse at the primitive layer.
+
+**7.2 Collapse redundancy before ranking.** On our data, 28 metrics
+carry only ~6 independent dimensions (PCA: first component = 51% of all
+variance), and **eleven** "return" metrics (expectancy, sharpe, sortino,
+PF, omega, calmar, recovery, win-rate, total_R, downside_dev, skew) move
+as a **single factor** at |ρ|≥0.90. Ranking collinear metrics separately
+multiply-counts one signal and fabricates false agreement. Rule: cluster
+by |ρ|, keep **one representative per independent axis**, then analyse.
+
+**7.3 Some metrics are structurally blind.** Metrics pinned by the fixed
+TP/SL barrier geometry (payoff ratio, avg-win, avg-loss, tail
+percentiles, best/worst R) barely move when the model changes, so they
+**cannot** discriminate between models or predict anything. Exclude them
+from model/window comparison — they are constants in disguise.
+
+**7.4 Evaluation must be out-of-sample, with a permutation null.**
+In-sample correlation across many metrics is a false-positive generator.
+Cycle 5 reported three metrics that "predict" forward returns (in-sample
+ρ≈0.34); under leave-one-out cross-validation with a 500-draw
+permutation null, the effect vanished (OOS R²≈0, permutation p=0.28) and
+the claim was **withdrawn**. Rule: no forward-predictive claim without
+(a) OOS cross-validation and (b) a permutation null that re-runs the
+entire metric/combination search on shuffled targets.
+
+**7.5 Combinations are tested, not assumed — and bounded by sample
+size.** Patterns can live in joint structure, so search combinations
+(permutations of primitives) — but honestly. All singles and pairs of 9
+primitives were OOS-tested; the best pair did not beat the best single
+and neither beat the null. Beyond pairs / beyond linear is **not
+testable at n≈42** without overfitting, so it stays open, not claimed.
+More power requires more data (C3-008 / 2027+).
+
+**7.6 The frozen protocol for any future metric study.** (i) reduce to
+independent axes; (ii) drop barrier-pinned metrics; (iii) analyse
+primitives; (iv) OOS-CV + permutation null for every predictive claim;
+(v) report combinations only if they beat both the best single and the
+null. This is the standing method for evaluating metrics on 2027+ data.

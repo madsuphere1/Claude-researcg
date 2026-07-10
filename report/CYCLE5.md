@@ -1,5 +1,16 @@
 # Cycle 5 — Window × Interval × Metric: which numbers actually inform?
 
+> **CORRECTION (see CYCLE6.md).** Finding 3's "HELPS" ranking below
+> (max_dd_R, max_consec_losses, tail_ratio as forward predictors) was
+> computed from **in-sample** Spearman ρ and is **WITHDRAWN**. Cycle 6
+> re-tested it out-of-sample (leave-one-out CV + permutation null): OOS
+> R² ≈ 0, permutation p = 0.28 — indistinguishable from noise. The
+> metric-informativeness section is superseded by Cycle 6. The
+> structural findings (redundancy, sliding-interval decay) stand.
+> Cycle 6 also shows the 28 metrics were not independent columns — 11 of
+> them are one factor — which invalidates the flat ranking method used
+> in Finding 3. Read CYCLE6.md for the corrected treatment.
+
 The operator asked for the thing behind the thing: not "what did each
 window earn" (Cycle 4 answered that) but **map every window and every
 sliding interval against a full quant-metric suite, then work out which

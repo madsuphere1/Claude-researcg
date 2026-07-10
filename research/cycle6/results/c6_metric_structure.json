@@ -1,0 +1,166 @@
+{
+ "n_cells": 155,
+ "zero_variance_metrics": [],
+ "algebraic_identities": {
+  "expectancy_identity_max_err": 9.247999999990181e-05,
+  "omega_equals_profit_factor": true,
+  "calmar_equals_recovery_factor": true
+ },
+ "redundancy_clusters_rho0.90": [
+  [
+   "n_trades"
+  ],
+  [
+   "trades_per_year"
+  ],
+  [
+   "calmar",
+   "downside_dev",
+   "expectancy_R",
+   "omega",
+   "profit_factor",
+   "recovery_factor",
+   "sharpe",
+   "skew",
+   "sortino",
+   "total_R",
+   "win_rate"
+  ],
+  [
+   "median_R"
+  ],
+  [
+   "avg_win_R"
+  ],
+  [
+   "avg_loss_R"
+  ],
+  [
+   "payoff_ratio"
+  ],
+  [
+   "std_R"
+  ],
+  [
+   "max_dd_R",
+   "ulcer_index"
+  ],
+  [
+   "kurtosis"
+  ],
+  [
+   "cvar95",
+   "tail_ratio",
+   "var95"
+  ],
+  [
+   "max_consec_wins"
+  ],
+  [
+   "max_consec_losses"
+  ],
+  [
+   "best_R"
+  ],
+  [
+   "worst_R"
+  ]
+ ],
+ "effective_dim_90pct": 6,
+ "effective_dim_95pct": 8,
+ "pc_variance_ratio": [
+  0.508,
+  0.151,
+  0.124,
+  0.052,
+  0.042,
+  0.037
+ ],
+ "combination_search": {
+  "n_pairs": 42,
+  "primitives": [
+   "win_rate",
+   "avg_win_R",
+   "avg_loss_R",
+   "std_R",
+   "downside_dev",
+   "max_dd_R",
+   "max_consec_losses",
+   "skew",
+   "kurtosis"
+  ],
+  "best_single": [
+   "max_consec_losses",
+   0.006
+  ],
+  "best_pair": [
+   [
+    "std_R",
+    "max_consec_losses"
+   ],
+   0.002
+  ],
+  "top5_singles": [
+   [
+    "max_consec_losses",
+    0.006
+   ],
+   [
+    "kurtosis",
+    -0.004
+   ],
+   [
+    "std_R",
+    -0.01
+   ],
+   [
+    "max_dd_R",
+    -0.019
+   ],
+   [
+    "avg_loss_R",
+    -0.088
+   ]
+  ],
+  "top5_pairs": [
+   [
+    [
+     "std_R",
+     "max_consec_losses"
+    ],
+    0.002
+   ],
+   [
+    [
+     "max_consec_losses",
+     "kurtosis"
+    ],
+    -0.002
+   ],
+   [
+    [
+     "std_R",
+     "max_dd_R"
+    ],
+    -0.026
+   ],
+   [
+    [
+     "max_dd_R",
+     "max_consec_losses"
+    ],
+    -0.03
+   ],
+   [
+    [
+     "max_dd_R",
+     "kurtosis"
+    ],
+    -0.037
+   ]
+  ],
+  "permutation_p_best": 0.284,
+  "null_best_mean": -0.013,
+  "null_best_p95": 0.098
+ }
+}
