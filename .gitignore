@@ -1,0 +1,8 @@
+research/data/raw/
+research/data/xauusd_m1.parquet
+__pycache__/
+*.pyc
+research/data/features_15m.parquet
+research/data/xauusd_15m.parquet
+research/cycle2/logs_*.txt
+research/cycle2/artifacts/

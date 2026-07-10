@@ -1,0 +1,10 @@
+XAUUSD M1 data quality report
+========================================
+rows: 6,052,168
+range: 2009-03-15 17:00:00 .. 2026-06-26 16:58:00 (EST, UTC-5 fixed)
+OHLC violations: 0
+non-positive prices: 0
+1-min |return| > 2%: 5 bars (checked as outliers)
+median bars/month: 29238
+months with <55% of median coverage:
+bars inside weekend window: 1705

@@ -1,0 +1,47 @@
+{
+ "delta_0.1": {
+  "n_signals": 2701,
+  "fill_rate": 0.8815253609774157,
+  "itt_limit_R": -0.024219157940574266,
+  "itt_market_R": -0.11196197246422031,
+  "itt_uplift_R": 0.08774281452364605,
+  "filled_exp_R": -0.027474147667992898,
+  "filled_mkt_counterfactual_R": -0.2411607553134962,
+  "unfilled_mkt_counterfactual_R": 0.8493577211736735,
+  "sl_samebar_frac": 0.005879882402351953,
+  "uplift_ci": [
+   0.05991831206358981,
+   0.11661599525518405
+  ]
+ },
+ "delta_0.25": {
+  "n_signals": 2675,
+  "fill_rate": 0.7693457943925234,
+  "itt_limit_R": -0.020548111901558436,
+  "itt_market_R": -0.10366159264248781,
+  "itt_uplift_R": 0.08311348074092938,
+  "filled_exp_R": -0.02670855166990711,
+  "filled_mkt_counterfactual_R": -0.37058025825171576,
+  "unfilled_mkt_counterfactual_R": 0.7866441023717605,
+  "sl_samebar_frac": 0.008746355685131196,
+  "uplift_ci": [
+   0.04391237504989171,
+   0.12125955891448413
+  ]
+ },
+ "delta_0.5": {
+  "n_signals": 2694,
+  "fill_rate": 0.5835189309576837,
+  "itt_limit_R": -0.021140199527102003,
+  "itt_market_R": -0.09060885225324433,
+  "itt_uplift_R": 0.06946865272614233,
+  "filled_exp_R": -0.03622881522010995,
+  "filled_mkt_counterfactual_R": -0.6085196337311365,
+  "unfilled_mkt_counterfactual_R": 0.6350201570901126,
+  "sl_samebar_frac": 0.00826972010178117,
+  "uplift_ci": [
+   0.022242491621590227,
+   0.11631351786825303
+  ]
+ }
+}
