@@ -170,6 +170,49 @@ C1-BASE because this uses the G2 barrier label — TP 3×ATR / SL 2×ATR /
 comparison is apples-to-apples; the small absolute offset is the
 different target, and is not the point.)
 
+### Correction: the flat mean is itself an aggregate — dissect it
+
+The operator caught a real fallacy in the paragraph above. Declaring
+rolling-2 "no signal" from a *full-history mean* AUC of 0.5012 is exactly
+the aggregate-hides-concentration error the Constitution forbids: C3-001
+proved this edge lives in volatility episodes, so a window could look
+dead on average yet carry a real edge inside its own edge-case regime.
+The mean was not enough; the claim had to be tested by regime.
+
+`research/cycle3/window_edge_dissection.py` splits each window's test-year
+AUC by the HMM high-vol gate (the edge-case selector the strategy
+actually trades; the gate is identical across windows, so the split is
+clean):
+
+| Window | Gated AUC | Gated yrs>0.5 | Sign p | Ungated AUC | Best gated yr |
+|---|---|---|---|---|---|
+| Expanding | 0.5255 | 9/13 | 0.133 | 0.5172 | 0.571 (2017) |
+| Rolling-5 | 0.5225 | 10/13 | **0.046** | 0.5106 | 0.579 (2017) |
+| Rolling-2 | 0.5112 | 7/13 | **0.500** | 0.4984 | 0.567 (2018) |
+
+Two things come out of the dissection, and the first vindicates the
+operator:
+
+1. **The gate concentrates signal for every window** — gated AUC exceeds
+   ungated AUC in all three rows. The regime structure is real; the flat
+   mean *was* washing it out, exactly as warned. Individual edge-case
+   years exist even for rolling-2 (0.567 in 2018, 0.534 in 2015, 0.554 in
+   2020).
+
+2. **But the conclusion survives the correct test.** Even inside its
+   edge-case regime, rolling-2's good years do not persist: 7/13 above
+   0.5, sign-test p = 0.500 — a coin. Its high years are scattered, not a
+   stable exploitable regime. Rolling-5, by contrast, keeps a marginal
+   real signal in the gate (10/13, p = 0.046), which is why C3-008 stays
+   open for rolling-5 and not for rolling-2.
+
+So the corrected, properly-earned statement is *not* "rolling-2 is dead
+because its average is 0.50." It is: **rolling-2 has no edge that
+survives regime dissection — its edge-case years exist but do not repeat,
+which is the signature of noise, not a hidden regime.** The stronger
+claim needed the dissection to stand; the weaker mean-only claim was a
+fallacy, and the operator was right to reject it.
+
 ## Verdict and what changes
 
 * **Screen verdict: rolling windows REFUTED on the exploratory slice.**
