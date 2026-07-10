@@ -1,0 +1,27 @@
+{
+ "coverage_all_bars": 0.6581101928232758,
+ "2018": {
+  "fold_gdelt_coverage": 1.0,
+  "baseline": 0.5181516761538055,
+  "baseline+gdelt": 0.5076567986671388,
+  "uplift": -0.010494877486666776,
+  "gdelt_gain_share": 0.053332408286400484
+ },
+ "2022": {
+  "fold_gdelt_coverage": 1.0,
+  "baseline": 0.529075448273605,
+  "baseline+gdelt": 0.5336046192912519,
+  "uplift": 0.004529171017646938,
+  "gdelt_gain_share": 0.09918970123904094
+ },
+ "2026": {
+  "fold_gdelt_coverage": 1.0,
+  "baseline": 0.5274357448016646,
+  "baseline+gdelt": 0.5252901608224432,
+  "uplift": -0.002145583979221377,
+  "gdelt_gain_share": 0.12577187573333787
+ },
+ "mean_uplift": -0.0027037634827470716,
+ "n_negative_folds": 2,
+ "verdict": "REJECT"
+}

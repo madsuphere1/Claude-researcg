@@ -70,7 +70,7 @@ whose object is markets and whose standard is out-of-sample evidence.
   correction is reported — never silently fixed.
 
 **Current state (update this block whenever it changes; last update
-2026-07-10, post C3-003/004):**
+2026-07-10, post C3-007):**
 
 * Instrument/data: XAUUSD 15m, 2010–2026, HistData-derived (no true
   volume/spread — proxies documented). 407,749 bars.
@@ -89,15 +89,24 @@ whose object is markets and whose standard is out-of-sample evidence.
 * Closed since: C3-003 lagged-daily-macro block REJECTED (uplift −0.009,
   negative all folds — daily macro state doesn't condition 15m barrier
   odds); C3-004 M1 replay IMMATERIAL (0/360 tie flips; composite numbers
-  stand; trade schema v2 persists barrier levels).
+  stand; trade schema v2 persists barrier levels); C3-007 GDELT weekly
+  tone/theme block REJECTED (uplift −0.0027, negative 2/3 folds — P8 now
+  0-for-2 on cross-asset conditioning; both closures share the same
+  mechanism, conditioning signal timescale too slow for a 4h barrier).
+* A generative-LLM "reasoning over news" backtest (TradingAgents-style)
+  was deliberately NOT built: retrospective LLM analysis of historical
+  news risks the model's own pretraining knowledge of subsequent events
+  leaking into its output — invisible lookahead bias standard leakage
+  screens don't catch. Constrained to forward/paper-only evaluation;
+  filed as [HYPOTHESIS, P8], not attempted as a backtest.
 * Top open priorities (queue in registry): (1) accrue post-2026 data and
   re-run C3-001's rule on it (standing C3-006); (2) shadow-measure real
   XAUUSD spreads + passive fill rates — OPERATOR-BLOCKED, needs broker/
   demo feed (C3-002); (3) regime-transition prediction target (C3-005);
-  (4) true tick/volume data acquisition (P7); (5) intraday-timed macro
-  data (higher-frequency yields/DXY) as the honest successor to C3-003's
-  rejection [HYPOTHESIS].
-* Last update of this block: 2026-07-10 (post C3-003/004).
+  (4) true tick/volume data acquisition (P7); (5) daily/intraday-
+  resolution GDELT re-test — C3-007 sampled only weekly, a coarser proxy
+  than the mechanism deserves [HYPOTHESIS, P8].
+* Last update of this block: 2026-07-10 (post C3-007).
 
 **Your first action** after the boot sequence: state to the operator, in
 five sentences or fewer, the current top of the priority queue and which

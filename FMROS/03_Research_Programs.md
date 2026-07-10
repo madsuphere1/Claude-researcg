@@ -193,15 +193,33 @@ both directions [TESTED-HERE].
 
 **Evidence base.** Calendar *position* features (days-to/since event)
 matter more than event-day flags; FOMC/NFP-day trades were too few for
-inference. Nothing else tested — this is the least-explored program.
+inference. Two independent conditioning-signal types now tested and
+both closed negative [TESTED-HERE]: lagged daily macro levels (real
+yield/DXY/VIX/WTI, `research/cycle3/results/c3_003_macro.json`, mean
+uplift −0.0087, 3/3 folds negative) and weekly GDELT media tone/theme
+tags (`research/cycle3/results/c3_007_gdelt.json`, mean uplift −0.0027,
+2/3 folds negative). Both fail for the same declared mechanism: the
+conditioning signal's native timescale (days, for a macro print or an
+accumulating narrative) is a poor match for a 4-hour barrier horizon —
+this is now a pattern across two data types, not an isolated result.
 
-**Standing questions (all [HYPOTHESIS]).**
-1. Real-yield and DXY conditioning of the gold signal (macro priors are
-   strong; evidence here is zero).
+**Standing questions.**
+1. Real-yield and DXY conditioning of the gold signal — CLOSED (C3-003,
+   REJECTED).
 2. High-impact-news spread/vol dynamics as execution inputs to P5.
-3. Cross-asset lead-lag at 15m–4h horizons.
+   [HYPOTHESIS]
+3. Cross-asset lead-lag at 15m–4h horizons. [HYPOTHESIS]
+4. Daily- or intraday-resolution GDELT re-test — C3-007 sampled only
+   weekly as a bandwidth-bounded pilot; a finer sample is a fairer test
+   of the textual-conditioning mechanism before concluding it's dead at
+   this program's timescale. [HYPOTHESIS]
 
-**Dead ends.** None (nothing tried).
+**Dead ends.** Lagged daily numeric macro (C3-003); weekly-sampled
+media tone/theme tags (C3-007). Any generative-LLM "reasoning" over
+historical news evaluated as a backtest — the model's own training-data
+knowledge of subsequent events risks silent lookahead contamination that
+standard leakage screens do not catch; constrained to forward/paper
+evaluation only until a contamination-safe design exists.
 
 ---
 
