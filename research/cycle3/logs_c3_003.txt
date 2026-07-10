@@ -1,0 +1,2 @@
+macro features: 12, coverage 100.0% of bars
+2018 {'baseline': 0.5182, 'baseline+macro': 0.5108, 'uplift': -0.0074, 'macro_gain_share': 0.2118}

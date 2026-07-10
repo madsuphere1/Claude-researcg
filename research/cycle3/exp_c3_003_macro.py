@@ -42,13 +42,13 @@ def macro_features(index: pd.DatetimeIndex) -> pd.DataFrame:
         feats[f"{s}_chg5"] = v.diff(5)
         feats[f"{s}_chg21"] = v.diff(21)
     F = pd.DataFrame(feats)
+    F = F[~F.index.duplicated(keep="last")].sort_index()
     # staleness cap: forward-fill max 5 business days
     F = F.ffill(limit=5)
-    # join by 15m bar's NY-close date convention: bar date in EST maps to
-    # most recent prior daily row
+    # join: each 15m bar (EST date) takes the most recent daily row at or
+    # before its date; reindex with ffill onto the monotone bar-date vector
     bar_dates = pd.DatetimeIndex(index.date)
-    F = F.reindex(F.index.union(bar_dates)).ffill(limit=7)
-    out = F.loc[bar_dates]
+    out = F.reindex(bar_dates, method="ffill")
     out.index = index
     return out.astype(np.float32)
 
