@@ -70,7 +70,7 @@ whose object is markets and whose standard is out-of-sample evidence.
   correction is reported — never silently fixed.
 
 **Current state (update this block whenever it changes; last update
-2026-07-10):**
+2026-07-10, post C3-003/004):**
 
 * Instrument/data: XAUUSD 15m, 2010–2026, HistData-derived (no true
   volume/spread — proxies documented). 407,749 bars.
@@ -86,12 +86,18 @@ whose object is markets and whose standard is out-of-sample evidence.
   odd-year confirmation +0.079R (p=0.11 day-block) → **WEAKENED, not
   confirmed, not refuted**. Registry C3-001. The clean arbiter is 2027+
   data (~26k bars/year accruing).
-* Top open priorities (queue in registry): (1) accrue/acquire post-2026
-  data and re-run C3-001 rule on it as it arrives; (2) shadow-measure
-  real XAUUSD spreads + passive fill rates (risk-free, unblocks the
-  1.25bp assumption); (3) cross-asset conditioning data project (P8 —
-  the largest unexplored space); (4) M1-resolution composite replay
-  (P7); (5) true tick/volume data acquisition (P7).
+* Closed since: C3-003 lagged-daily-macro block REJECTED (uplift −0.009,
+  negative all folds — daily macro state doesn't condition 15m barrier
+  odds); C3-004 M1 replay IMMATERIAL (0/360 tie flips; composite numbers
+  stand; trade schema v2 persists barrier levels).
+* Top open priorities (queue in registry): (1) accrue post-2026 data and
+  re-run C3-001's rule on it (standing C3-006); (2) shadow-measure real
+  XAUUSD spreads + passive fill rates — OPERATOR-BLOCKED, needs broker/
+  demo feed (C3-002); (3) regime-transition prediction target (C3-005);
+  (4) true tick/volume data acquisition (P7); (5) intraday-timed macro
+  data (higher-frequency yields/DXY) as the honest successor to C3-003's
+  rejection [HYPOTHESIS].
+* Last update of this block: 2026-07-10 (post C3-003/004).
 
 **Your first action** after the boot sequence: state to the operator, in
 five sentences or fewer, the current top of the priority queue and which

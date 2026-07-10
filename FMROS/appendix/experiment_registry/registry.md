@@ -23,8 +23,8 @@ state that produced the verdict (see git log around each result commit).
 | X1 | P2+P5+P6 | Composite of three levers is net-positive (EXPLORATORY) | closed | promising-unproven → superseded by C3-001 | +0.128R even yrs; day p=0.02, year p=0.10; 2016+2020 = 118% of R | `research/cycle2/results/x1_composite_pilot.json` |
 | C3-001 | P2+P5+P6 | X1 frozen spec confirms on odd years 2015–2025 | closed | **WEAKENED** | +0.079R, 334 trades; day-block p=0.108; year-block p=0.187; 3/6 yrs positive | `research/cycle3/results/c3_x1_confirmation.json` |
 | C3-002 | P5/P7 | Shadow-measure real spreads + passive fill rates (data project) | PROPOSED | — | unblocks the 1.25bp assumption; risk-free | — |
-| C3-003 | P8 | Cross-asset conditioning (DXY/real yields) adds gross signal | PROPOSED | — | largest unexplored space; needs data acquisition first | — |
-| C3-004 | P7 | Full-M1 replay of composite (remove residual tie pessimism) | PROPOSED | — | fidelity upgrade; sign-flip potential low but nonzero | — |
+| C3-003 | P8 | Lagged daily macro block (real yield/DXY/VIX/WTI) adds ≥0.003 AUC | closed | **REJECTED** | uplift −0.0087, negative all 3 folds despite 21–23% gain share (noise-fit signature) | `research/cycle3/results/c3_003_macro.json` |
+| C3-004 | P7 | 15m tie-break pessimism materially biases composite expectancy | closed | **IMMATERIAL** | 0/360 SL exits flip at M1 resolution; recorded expectancies stand; trade schema v2 (levels persisted) | `research/cycle3/results/c3_004_m1_replay.json` |
 | C3-005 | P2 | Regime-transition prediction (entering expansion) as target | PROPOSED | — | mechanism-motivated successor to H-A1 | — |
 | C3-006 | — | Re-run C3-001 decision rule on 2027+ data as it accrues | PRE-REGISTERED (standing) | — | the clean arbiter of the X1 family; rule inherited verbatim from C3-001 | — |
 

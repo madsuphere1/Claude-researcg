@@ -1,2 +1,5 @@
 macro features: 12, coverage 100.0% of bars
 2018 {'baseline': 0.5182, 'baseline+macro': 0.5108, 'uplift': -0.0074, 'macro_gain_share': 0.2118}
+2022 {'baseline': 0.5291, 'baseline+macro': 0.5171, 'uplift': -0.012, 'macro_gain_share': 0.2174}
+2026 {'baseline': 0.5274, 'baseline+macro': 0.5208, 'uplift': -0.0067, 'macro_gain_share': 0.2337}
+mean uplift: -0.0087 REJECT

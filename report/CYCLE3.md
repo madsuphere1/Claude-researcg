@@ -38,6 +38,26 @@ registry C3-006, rule inherited verbatim) and cheaper measured execution
 the 1.25bp assumption is now the most verdict-sensitive number in the
 program).
 
+## Two further verdicts under FMROS (same day)
+
+**C3-003 — cross-asset macro conditioning: REJECTED.** A pre-registered
+12-feature block of 2-day-lagged daily macro state (10y real yield,
+broad dollar, VIX, WTI from FRED) *reduced* walk-forward AUC in all
+three test folds (mean −0.0087) while consuming 21–23% of the model's
+training gain — the textbook noise-fit signature, and a validation of
+the house rule that importance is not usefulness. Gold's macro anchors
+operate at horizons of days-plus; they do not time 4-hour barrier odds
+through lagged daily samples. The honest successor hypothesis
+(intraday-timed macro series) is queued.
+
+**C3-004 — M1 fidelity replay: IMMATERIAL.** After fixing a real schema
+defect it exposed (barrier levels now persisted in trade records;
+deterministic re-runs matched anchors exactly), minute-level replay of
+all 360 stop-loss exits across both composite samples flipped **zero**
+of them to take-profits. The composite's +0.128R / +0.079R carry no
+tie-break bias; the binding fidelity question is the passive-fill cost
+assumption (C3-002), not bar resolution.
+
 **Program state.** FMROS v1.0 is now the governing system; the registry
 (`FMROS/appendix/experiment_registry/registry.md`) carries 16 closed
 verdicts and 5 open entries, priority-ordered. No strategy qualifies for

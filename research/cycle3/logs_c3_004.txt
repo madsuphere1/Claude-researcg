@@ -1,0 +1,3 @@
+pilot_even {'n_trades': 414, 'n_sl_exits': 205, 'n_flipped_to_tp': 0, 'expectancy_recorded': 0.12790770985595395, 'expectancy_corrected': 0.12790770985595395, 'correction_R': 0.0}
+confirm_odd {'n_trades': 334, 'n_sl_exits': 155, 'n_flipped_to_tp': 0, 'expectancy_recorded': 0.07883523355330557, 'expectancy_corrected': 0.07883523355330557, 'correction_R': 0.0}
+verdict: IMMATERIAL
