@@ -135,8 +135,13 @@ def walk_forward_predictions(df: pd.DataFrame, feats: list[str]
 
 def simulate(df: pd.DataFrame, folds: list[FoldPred], cost_bp: float = COST_BP,
              risk: float = RISK, max_trades_day: int = MAX_TRADES_DAY,
-             threshold_shift: float = 0.0) -> tuple[pd.DataFrame, pd.Series]:
-    """Sequential simulation. Returns (trades, daily equity)."""
+             threshold_shift: float = 0.0, pre_gap_flatten: bool = False,
+             max_lev: float | None = None) -> tuple[pd.DataFrame, pd.Series]:
+    """Sequential simulation. Returns (trades, daily equity).
+
+    pre_gap_flatten: exit at the close of the last bar before any >2h gap
+    (weekend/holiday) instead of holding through and exiting at the
+    post-gap open. max_lev caps position notional/equity."""
     pred = pd.concat([f.pred for f in folds])
     thr_by_year = {f.test_year: f.threshold + threshold_shift for f in folds}
     sub = df.loc[pred.index]
@@ -169,7 +174,20 @@ def simulate(df: pd.DataFrame, folds: list[FoldPred], cost_bp: float = COST_BP,
         if pos is not None:
             exit_px = None
             reason = None
-            if gap_min[i] > 120:      # weekend/holiday gap -> flatten at open
+            if pre_gap_flatten and i + 1 < n and gap_min[i + 1] > 120:
+                # last bar before a weekend/holiday break: check barriers
+                # first, then flatten at this bar's close
+                if pos["side"] == 1 and l[i] <= pos["sl"]:
+                    exit_px, reason = pos["sl"], "sl"
+                elif pos["side"] == 1 and h[i] >= pos["tp"]:
+                    exit_px, reason = pos["tp"], "tp"
+                elif pos["side"] == -1 and h[i] >= pos["sl"]:
+                    exit_px, reason = pos["sl"], "sl"
+                elif pos["side"] == -1 and l[i] <= pos["tp"]:
+                    exit_px, reason = pos["tp"], "tp"
+                else:
+                    exit_px, reason = c[i], "pre_gap"
+            elif gap_min[i] > 120:    # weekend/holiday gap -> flatten at open
                 exit_px, reason = o[i], "gap"
             elif pos["side"] == 1:
                 if l[i] <= pos["sl"]:
@@ -213,6 +231,8 @@ def simulate(df: pd.DataFrame, folds: list[FoldPred], cost_bp: float = COST_BP,
                 entry = o[i + 1]
                 sl_d = SL_R * a[i]
                 lev = risk / (sl_d / entry)     # position notional / equity
+                if max_lev is not None:
+                    lev = min(lev, max_lev)
                 pos = dict(side=side, entry=entry,
                            tp=entry + side * TP_R * a[i],
                            sl=entry - side * sl_d,
