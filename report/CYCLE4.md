@@ -88,6 +88,48 @@ model; it's that recent years simply haven't contained the volatility
 regime this strategy monetizes. A shorter window doesn't manufacture
 that regime; it just fits noise while waiting for it.
 
+## End-to-end, all years, full metrics (the complete run)
+
+The screen above used even years only. The operator then asked for the
+*whole* thing end-to-end. `strategy/window_comparison.py` runs all three
+window policies over the full 2014–2026 span as one continuous
+simulation, identical treatment, complete metrics suite:
+
+| Window | Trades | Exp/R | Win% | PF | Sharpe | maxDD | p(day) | @2.5bp |
+|---|---|---|---|---|---|---|---|---|
+| **Expanding** | 748 | **+0.106** | 46.7% | 1.20 | +0.68 | −26.2% | **0.008** | +0.068 |
+| Rolling-5 | 598 | −0.037 | 41.0% | 0.94 | −0.21 | −43.3% | 0.775 | −0.072 |
+| Rolling-2 | 628 | −0.083 | 39.2% | 0.86 | −0.49 | −51.4% | 0.961 | −0.121 |
+
+Expanding is the *only* profitable policy, and the only one that is
+statistically distinguishable from zero (day-block p=0.008). Rolling
+windows are negative-expectancy on **every** metric at once —
+expectancy, win rate, profit factor below 1, negative Sharpe, and
+catastrophic drawdowns (−43% and −51% vs expanding's −26%; those alone
+would end most accounts). The degradation is strictly monotone in how
+much history you throw away. At realistic 2.5bp costs the rolling
+variants sit at −0.072R and −0.121R — bleeding money on every trade.
+
+Per-year expectancy (R/trade, 1.25bp, n in parens):
+
+| Year | Expanding | Rolling-5 | Rolling-2 |
+|---|---|---|---|
+| 2020 | +0.149 (200) | −0.135 (97) | −0.016 (32) |
+| 2021 | +0.172 (114) | +0.047 (65) | +0.038 (148) |
+| 2023 | −0.105 (118) | −0.075 (83) | +0.050 (19) |
+| 2024 | −0.063 (46) | **+0.351 (21)** | −0.519 (11) |
+| 2025 | −0.037 (43) | −0.193 (37) | −0.090 (42) |
+| 2026 | −0.069 (34) | −0.111 (169) | −0.341 (101) |
+
+The recent-years verdict is now complete and it holds against the
+operator hypothesis on the weight of evidence: of the last three years,
+rolling-5 beat expanding in **one** (2024, 21 trades) and lost the other
+two, including 2026 where it traded 169 times and still lost more than
+expanding. Rolling didn't just fail to help the recent slump — in 2026
+it manufactured 5× more trades and lost money on them, turning a
+−0.069R drift into a −0.111R bleed. That is the short-window failure
+mode in one cell: more confident, more active, more wrong.
+
 ## Verdict and what changes
 
 * **Screen verdict: rolling windows REFUTED on the exploratory slice.**

@@ -1,0 +1,4 @@
+# large regenerable caches (walk-forward predictions + HMM gate)
+predictions.parquet
+gate.parquet
+pred_rolling*_allyears.parquet
