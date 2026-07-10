@@ -28,6 +28,7 @@ state that produced the verdict (see git log around each result commit).
 | C3-005 | P2 | Regime-transition prediction (entering expansion) as target | PROPOSED | — | mechanism-motivated successor to H-A1 | — |
 | C3-006 | — | Re-run C3-001 decision rule on 2027+ data as it accrues | PRE-REGISTERED (standing) | — | the clean arbiter of the X1 family; rule inherited verbatim from C3-001 | — |
 | C3-007 | P8 | GDELT weekly tone/theme block (textual successor to C3-003's numeric macro) adds ≥0.003 AUC | closed | **REJECTED** | uplift −0.0027, negative 2/3 folds; P8 now 0-for-2 on cross-asset conditioning | `research/cycle3/results/c3_007_gdelt.json` |
+| C3-008 | P10 | Rolling-5y models beat expanding models on 2027+ data (operator hypothesis; successor to H-I1 via new data + 2024/2026 AUC sliver) | PRE-REGISTERED (standing) | — | rule frozen before any test data exists; evaluate after 2029; exploratory screen on even years is context only | `FMROS/appendix/experiment_registry/entries/C3-008.md` |
 
 ## Notes
 
