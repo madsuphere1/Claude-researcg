@@ -27,6 +27,7 @@ state that produced the verdict (see git log around each result commit).
 | C3-004 | P7 | 15m tie-break pessimism materially biases composite expectancy | closed | **IMMATERIAL** | 0/360 SL exits flip at M1 resolution; recorded expectancies stand; trade schema v2 (levels persisted) | `research/cycle3/results/c3_004_m1_replay.json` |
 | C3-005 | P2 | Regime-transition prediction (entering expansion) as target | PROPOSED | — | mechanism-motivated successor to H-A1 | — |
 | C3-006 | — | Re-run C3-001 decision rule on 2027+ data as it accrues | PRE-REGISTERED (standing) | — | the clean arbiter of the X1 family; rule inherited verbatim from C3-001 | — |
+| C3-007 | P8 | GDELT weekly tone/theme block (textual successor to C3-003's numeric macro) adds ≥0.003 AUC | PRE-REGISTERED | — | 6-feature block, 2015-02+ coverage only; generative-LLM variant deferred to forward-only (contamination risk) | `FMROS/appendix/experiment_registry/entries/C3-007.md` |
 
 ## Notes
 
