@@ -8,12 +8,21 @@ on XAUUSD 15-minute bars?**
 costs (+0.114R/trade gross → −0.105R/trade at 2.5bp round-trip). Breakeven
 ≈ 1.3bp. No tradeable retail edge was found.**
 
+**Operating system:** the research program is governed by
+[FMROS v1.0](FMROS/00_README.md) — a research constitution, methodology,
+experiment engine, and agent specification distilled from these cycles.
+To continue the work with any coding agent, hand it
+[FMROS/10_Master_Execution_Prompt.md](FMROS/10_Master_Execution_Prompt.md).
+
 Full findings:
 - Cycle 1 (edge existence): [report/REPORT.md](report/REPORT.md)
 - Cycle 2 (new-hypothesis discovery, 10 tracks): [report/CYCLE2.md](report/CYCLE2.md) —
   4 clean rejections, 3 quantified levers (vol-gating, barrier geometry,
   passive execution), 1 exploratory composite (+0.128R net, unproven at
-  year granularity) awaiting pre-registered cycle-3 confirmation.
+  year granularity).
+- Cycle 3 (pre-registered confirmation): [report/CYCLE3.md](report/CYCLE3.md) —
+  X1 on never-tested odd years: +0.079R, right-signed but p=0.11 →
+  **WEAKENED**; verdict deferred to 2027+ data per standing registry entry.
 
 ## Layout
 
