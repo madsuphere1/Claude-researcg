@@ -1,0 +1,140 @@
+{
+ "expectancy_R": {
+  "forward_rho": 0.14,
+  "persistence": 0.47,
+  "discrimination": 1.0,
+  "classification": "WEAK"
+ },
+ "median_R": {
+  "forward_rho": 0.04,
+  "persistence": 0.224,
+  "discrimination": 0.6,
+  "classification": "DECORATIVE"
+ },
+ "win_rate": {
+  "forward_rho": 0.216,
+  "persistence": 0.493,
+  "discrimination": 0.9,
+  "classification": "WEAK"
+ },
+ "avg_win_R": {
+  "forward_rho": 0.054,
+  "persistence": -0.045,
+  "discrimination": 0.5,
+  "classification": "DECORATIVE"
+ },
+ "avg_loss_R": {
+  "forward_rho": -0.22,
+  "persistence": 0.273,
+  "discrimination": 0.2,
+  "classification": "WEAK"
+ },
+ "payoff_ratio": {
+  "forward_rho": -0.019,
+  "persistence": -0.018,
+  "discrimination": 0.7,
+  "classification": "DECORATIVE"
+ },
+ "profit_factor": {
+  "forward_rho": 0.14,
+  "persistence": 0.461,
+  "discrimination": 1.0,
+  "classification": "WEAK"
+ },
+ "std_R": {
+  "forward_rho": 0.298,
+  "persistence": 0.116,
+  "discrimination": 0.7,
+  "classification": "WEAK"
+ },
+ "sharpe": {
+  "forward_rho": 0.14,
+  "persistence": 0.475,
+  "discrimination": 1.0,
+  "classification": "WEAK"
+ },
+ "sortino": {
+  "forward_rho": 0.14,
+  "persistence": 0.469,
+  "discrimination": 1.0,
+  "classification": "WEAK"
+ },
+ "downside_dev": {
+  "forward_rho": -0.059,
+  "persistence": 0.343,
+  "discrimination": -0.7,
+  "classification": "DECORATIVE"
+ },
+ "max_dd_R": {
+  "forward_rho": 0.337,
+  "persistence": 0.508,
+  "discrimination": 0.9,
+  "classification": "HELPS"
+ },
+ "calmar": {
+  "forward_rho": 0.173,
+  "persistence": 0.455,
+  "discrimination": 0.9,
+  "classification": "WEAK"
+ },
+ "recovery_factor": {
+  "forward_rho": 0.173,
+  "persistence": 0.455,
+  "discrimination": 0.9,
+  "classification": "WEAK"
+ },
+ "ulcer_index": {
+  "forward_rho": -0.29,
+  "persistence": 0.459,
+  "discrimination": -0.5,
+  "classification": "WEAK"
+ },
+ "skew": {
+  "forward_rho": -0.118,
+  "persistence": 0.445,
+  "discrimination": -1.0,
+  "classification": "WEAK"
+ },
+ "kurtosis": {
+  "forward_rho": -0.307,
+  "persistence": 0.299,
+  "discrimination": -0.9,
+  "classification": "WEAK"
+ },
+ "var95": {
+  "forward_rho": 0.322,
+  "persistence": 0.29,
+  "discrimination": -0.1,
+  "classification": "WEAK"
+ },
+ "cvar95": {
+  "forward_rho": 0.307,
+  "persistence": 0.257,
+  "discrimination": -0.2,
+  "classification": "WEAK"
+ },
+ "tail_ratio": {
+  "forward_rho": 0.307,
+  "persistence": 0.302,
+  "discrimination": 0.205,
+  "classification": "HELPS"
+ },
+ "omega": {
+  "forward_rho": 0.14,
+  "persistence": 0.461,
+  "discrimination": 1.0,
+  "classification": "WEAK"
+ },
+ "max_consec_wins": {
+  "forward_rho": -0.014,
+  "persistence": 0.199,
+  "discrimination": 0.447,
+  "classification": "DECORATIVE"
+ },
+ "max_consec_losses": {
+  "forward_rho": -0.352,
+  "persistence": 0.618,
+  "discrimination": 0.41,
+  "classification": "HELPS"
+ }
+}
