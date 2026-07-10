@@ -59,7 +59,9 @@ tie-break bias; the binding fidelity question is the passive-fill cost
 assumption (C3-002), not bar resolution.
 
 **Program state.** FMROS v1.0 is now the governing system; the registry
-(`FMROS/appendix/experiment_registry/registry.md`) carries 16 closed
-verdicts and 5 open entries, priority-ordered. No strategy qualifies for
+(`FMROS/appendix/experiment_registry/registry.md`) carries 18 closed
+verdicts and 3 open entries (one operator-blocked on a broker feed, one
+calendar-blocked on 2027+ data, one ready: C3-005 regime-transition
+prediction). No strategy qualifies for
 any production gate. Nothing here is investment advice; simulated results
 throughout.
