@@ -249,12 +249,23 @@ everywhere; PSI-style drift statistics are anti-correlated with what
 matters (they track training-set maturity, not alpha decay) and would
 misfire as retrain triggers [TESTED-HERE:
 `research/cycle2/results/i1_drift.json`]. Static models decay slowly
-(2013 model still ≈ 0.52 in 2026).
+(2013 model still ≈ 0.52 in 2026). Cycle 4 re-tested rolling windows at
+the *full-strategy expectancy* level (not just AUC), on operator
+challenge: expanding +0.128R vs rolling-5 −0.058R vs rolling-2 −0.145R
+on the even-year slice — monotone, shorter window = worse, driven by
+short windows being unable to resolve the AUC-0.53 signal (thresholds
+forced to 0.76–0.90). One large-sample-contradicted recent-year point
+(2024 rolling-5 +0.351R on 21 trades) keeps the *new-data* arbiter
+C3-008 open [TESTED-HERE: `research/cycle3/results/screen_rolling_x1.json`,
+`report/CYCLE4.md`].
 
 **Standing questions.**
 1. Performance-based (not distribution-based) decay detection:
    sequential probability ratio tests on rolling trade outcomes — the
    production-monitoring question of Volume 9. [HYPOTHESIS]
 2. Does the vol-gate reduce decay exposure (is gated alpha younger)?
+3. Expanding vs rolling-5 on 2027+ data (C3-008, standing) — the only
+   clean arbiter of the window question; rule frozen before data exists.
 
-**Dead ends.** Rolling training windows; PSI-triggered retraining.
+**Dead ends.** Rolling training windows (refuted twice: H-I1 at AUC
+level, C4 screen at expectancy level); PSI-triggered retraining.

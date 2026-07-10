@@ -70,7 +70,7 @@ whose object is markets and whose standard is out-of-sample evidence.
   correction is reported — never silently fixed.
 
 **Current state (update this block whenever it changes; last update
-2026-07-10, post C3-007):**
+2026-07-10, post Cycle 4 / rolling-window screen):**
 
 * Instrument/data: XAUUSD 15m, 2010–2026, HistData-derived (no true
   volume/spread — proxies documented). 407,749 bars.
@@ -99,6 +99,14 @@ whose object is markets and whose standard is out-of-sample evidence.
   leaking into its output — invisible lookahead bias standard leakage
   screens don't catch. Constrained to forward/paper-only evaluation;
   filed as [HYPOTHESIS, P8], not attempted as a backtest.
+* Cycle 4 (window question, operator-driven): rolling training windows
+  re-tested at full-strategy expectancy level — expanding +0.128R vs
+  rolling-5 −0.058R vs rolling-2 −0.145R on even years, monotone
+  (shorter=worse). Rolling REFUTED (screen); expanding/annual-retrain
+  rule stands. One recent-year point favored rolling (2024 rolling-5
+  +0.351R/n21) but 2026 (169 trades) contradicted it — so the *new-data*
+  arbiter C3-008 (expanding vs rolling-5 on 2027+, rule frozen) stays
+  open. See `report/CYCLE4.md`.
 * Top open priorities (queue in registry): (1) accrue post-2026 data and
   re-run C3-001's rule on it (standing C3-006); (2) shadow-measure real
   XAUUSD spreads + passive fill rates — OPERATOR-BLOCKED, needs broker/
