@@ -33,6 +33,19 @@ state that produced the verdict (see git log around each result commit).
 | C5-001 | P10 | (exploratory mapping) window×interval×28-metric; which metrics predict forward? | closed | mapping; informativeness ranking WITHDRAWN (see C6-001) | edge decayed for ALL windows post-2022 (stands); metric ranking was in-sample & on redundant columns → superseded | `research/cycle5/results/`, `report/CYCLE5.md` |
 | C6-001 | P10 | Metric structure — are metrics independent columns, and do combinations predict forward? | closed | **CORRECTS C5** | 28 metrics→6 axes (PC1=51%; 11 return-metrics=1 factor); omega≡PF, calmar≡recovery exact; best single/pair OOS R²≈0, permutation p=0.28 → no forward signal; doctrine in METHODOLOGY §7 | `research/cycle6/results/c6_metric_structure.json`, `report/CYCLE6.md` |
 
+## BTCUSD program (parallel instrument, `research/btc/`)
+
+| ID | Program | Hypothesis (short) | State | Verdict | Effect (primary) | Results |
+|----|---------|--------------------|-------|---------|------------------|---------|
+| B1-BASE | — | A predictive signal exists on BTC 15m | closed | CONFIRMED | WF AUC 0.5301, 8/8 yrs>0.5, sign-test p=0.0039 | `research/btc/results/b1_baseline.json` |
+| B1-FLOW | P7 | Crypto order-flow (taker imbalance/volume/trades) adds OOS AUC beyond price | closed | CONFIRMED | uplift +0.0046 (0.5301→0.5347); the first real microstructure edge gold couldn't test | `research/btc/results/b1_baseline.json` |
+| B1-ECON | P5 | Naive 15m strategy survives crypto cost | closed | REFUTED | top-decile gross +0.016R → net −0.048/−0.145/−0.307R at 2/5/10bp | `research/btc/results/b1_baseline.json` |
+
+BTC lesson: signal slightly richer than gold (order flow works), but the
+~10bp taker fee is ~4× gold's spread → 15m trading is more cost-dead, not
+less. Viable design pushed toward wide-barrier / trend-hold (small
+cost-in-R), mirroring the gold trend-ride finding. See `research/btc/REPORT.md`.
+
 ## Notes
 
 * X1/C3-001 lesson (program-level): a vol-gated strategy's profits
