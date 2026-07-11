@@ -1,0 +1,171 @@
+{
+ "instrument": "XAUUSD 15m",
+ "train": "2010-2019",
+ "test": "2020-2026",
+ "cost_bp": 2.5,
+ "models": {
+  "01_uptrend": {
+   "meaning": "Trend up (price>50EMA, 20>50EMA) \u2014 ride long",
+   "recognition_freq_pct": 44.42,
+   "direction": "long",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.522,
+   "oos_net_R": -0.1081,
+   "profitable": false
+  },
+  "02_downtrend": {
+   "meaning": "Trend down (price<50EMA, 20<50EMA) \u2014 ride short",
+   "recognition_freq_pct": 40.0,
+   "direction": "short",
+   "TP_atr": 1.5,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.528,
+   "oos_net_R": -0.1523,
+   "profitable": false
+  },
+  "03_break_4h_high": {
+   "meaning": "Closes above prior 4h high \u2014 breakout long",
+   "recognition_freq_pct": 6.1,
+   "direction": "long",
+   "TP_atr": 1.5,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.551,
+   "oos_net_R": -0.1492,
+   "profitable": false
+  },
+  "04_break_4h_low": {
+   "meaning": "Closes below prior 4h low \u2014 breakdown short",
+   "recognition_freq_pct": 5.25,
+   "direction": "short",
+   "TP_atr": 1.5,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.525,
+   "oos_net_R": -0.1837,
+   "profitable": false
+  },
+  "05_bull_engulf": {
+   "meaning": "Green body engulfs prior red \u2014 reversal long",
+   "recognition_freq_pct": 6.84,
+   "direction": "long",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.526,
+   "oos_net_R": -0.1107,
+   "profitable": false
+  },
+  "06_bear_engulf": {
+   "meaning": "Red body engulfs prior green \u2014 reversal short",
+   "recognition_freq_pct": 6.61,
+   "direction": "short",
+   "TP_atr": 1.5,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.528,
+   "oos_net_R": -0.171,
+   "profitable": false
+  },
+  "07_hammer": {
+   "meaning": "Long lower wick, sellers rejected \u2014 bounce long",
+   "recognition_freq_pct": 12.62,
+   "direction": "long",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.525,
+   "oos_net_R": -0.1165,
+   "profitable": false
+  },
+  "08_shooting_star": {
+   "meaning": "Long upper wick, buyers rejected \u2014 fade short",
+   "recognition_freq_pct": 12.28,
+   "direction": "short",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.496,
+   "oos_net_R": -0.1482,
+   "profitable": false
+  },
+  "09_inside_bar": {
+   "meaning": "Range inside prior bar (compression) \u2014 breakout",
+   "recognition_freq_pct": 15.83,
+   "direction": "long",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.529,
+   "oos_net_R": -0.1022,
+   "profitable": false
+  },
+  "10_range_compress": {
+   "meaning": "Narrow range + low vol \u2014 coiled breakout",
+   "recognition_freq_pct": 10.06,
+   "direction": "long",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.537,
+   "oos_net_R": -0.1033,
+   "profitable": false
+  },
+  "11_momentum_up": {
+   "meaning": "Large green body \u2014 continuation long",
+   "recognition_freq_pct": 2.09,
+   "direction": "long",
+   "TP_atr": 1.5,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.557,
+   "oos_net_R": -0.156,
+   "profitable": false
+  },
+  "12_momentum_down": {
+   "meaning": "Large red body \u2014 continuation short",
+   "recognition_freq_pct": 2.15,
+   "direction": "short",
+   "TP_atr": 1.5,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.549,
+   "oos_net_R": -0.1607,
+   "profitable": false
+  },
+  "13_pullback_in_uptrend": {
+   "meaning": "Dip to 20EMA within uptrend \u2014 buy the dip",
+   "recognition_freq_pct": 7.96,
+   "direction": "long",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.532,
+   "oos_net_R": -0.0967,
+   "profitable": false
+  },
+  "14_pullback_in_downtrend": {
+   "meaning": "Rally to 20EMA within downtrend \u2014 sell rally",
+   "recognition_freq_pct": 7.55,
+   "direction": "short",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.5,
+   "oos_net_R": -0.132,
+   "profitable": false
+  },
+  "15_break_4h_high_+1d_up": {
+   "meaning": "4h breakout confirmed by daily uptrend (MTF)",
+   "recognition_freq_pct": 2.7,
+   "direction": "long",
+   "TP_atr": 2.0,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.528,
+   "oos_net_R": -0.1057,
+   "profitable": false
+  },
+  "16_break_4h_low_+1d_down": {
+   "meaning": "4h breakdown confirmed by daily downtrend (MTF)",
+   "recognition_freq_pct": 1.98,
+   "direction": "short",
+   "TP_atr": 1.5,
+   "SL_atr": 3.0,
+   "oos_win_rate": 0.517,
+   "oos_net_R": -0.1789,
+   "profitable": false
+  }
+ },
+ "n_win_ge_50pct": 15,
+ "n_profitable_net": 0,
+ "profitable_models": []
+}
