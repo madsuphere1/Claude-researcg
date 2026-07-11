@@ -103,10 +103,16 @@ def main():
     print(f"bars {len(df):,}  {df.index.min()} .. {df.index.max()}", flush=True)
     a = atr(df, 14)
     f, price_cols, flow_cols = features(df)
-    y = barrier_labels(df, a)
+    lab_cache = HERE / "data" / "labels_y_tp_long.npy"
+    if lab_cache.exists():
+        y = np.load(lab_cache)
+        print("loaded cached labels", flush=True)
+    else:
+        y = barrier_labels(df, a)
+        np.save(lab_cache, y)
     d = pd.concat([f], axis=1)
     yrs = df.index.year.values
-    years = sorted(set(yrs))
+    years = sorted(set(int(x) for x in yrs))
     test_years = [t for t in years if (yrs < t).sum() > 20000]
 
     def wf(cols):
@@ -164,7 +170,7 @@ def main():
                                win_rate=round(float((ally[sel] == 1).mean()), 4))
     out["ECON_top_decile_longs"] = econ
 
-    (RESULTS / "b1_baseline.json").write_text(json.dumps(out, indent=1))
+    (RESULTS / "b1_baseline.json").write_text(json.dumps(out, indent=1, default=float))
     print("\nBASE (price-only) mean AUC", out["BASE_price_only"]["mean_auc"],
           out["BASE_price_only"]["years_above_0.5"], "sign_p", round(out["BASE_price_only"]["sign_p"], 4))
     print("FLOW uplift from order-flow features:", out["FLOW_price_plus_flow"]["uplift"])
