@@ -1,0 +1,160 @@
+{
+ "instrument": "XAUUSD 15m",
+ "H_bars": 16,
+ "cost_bp": 2.5,
+ "patterns": {
+  "01_uptrend": {
+   "n": 172472,
+   "freq_pct": 44.42,
+   "dir": "long",
+   "dir_hit_rate": 0.499,
+   "barrier_win": 0.308,
+   "gross_R": -0.2555,
+   "net_R": -0.4952
+  },
+  "02_downtrend": {
+   "n": 155287,
+   "freq_pct": 40.0,
+   "dir": "short",
+   "dir_hit_rate": 0.474,
+   "barrier_win": 0.296,
+   "gross_R": -0.2828,
+   "net_R": -0.5105
+  },
+  "03_break_4h_high": {
+   "n": 23699,
+   "freq_pct": 6.1,
+   "dir": "long",
+   "dir_hit_rate": 0.491,
+   "barrier_win": 0.277,
+   "gross_R": -0.3226,
+   "net_R": -0.5609
+  },
+  "04_break_4h_low": {
+   "n": 20369,
+   "freq_pct": 5.25,
+   "dir": "short",
+   "dir_hit_rate": 0.456,
+   "barrier_win": 0.242,
+   "gross_R": -0.4025,
+   "net_R": -0.6365
+  },
+  "05_bull_engulf": {
+   "n": 26556,
+   "freq_pct": 6.84,
+   "dir": "long",
+   "dir_hit_rate": 0.507,
+   "barrier_win": 0.309,
+   "gross_R": -0.2554,
+   "net_R": -0.4913
+  },
+  "06_bear_engulf": {
+   "n": 25663,
+   "freq_pct": 6.61,
+   "dir": "short",
+   "dir_hit_rate": 0.478,
+   "barrier_win": 0.291,
+   "gross_R": -0.3007,
+   "net_R": -0.5341
+  },
+  "07_hammer": {
+   "n": 48999,
+   "freq_pct": 12.62,
+   "dir": "long",
+   "dir_hit_rate": 0.513,
+   "barrier_win": 0.314,
+   "gross_R": -0.2467,
+   "net_R": -0.4814
+  },
+  "08_shooting_star": {
+   "n": 47677,
+   "freq_pct": 12.28,
+   "dir": "short",
+   "dir_hit_rate": 0.488,
+   "barrier_win": 0.3,
+   "gross_R": -0.2761,
+   "net_R": -0.5132
+  },
+  "09_inside_bar": {
+   "n": 61469,
+   "freq_pct": 15.83,
+   "dir": "neutral",
+   "up_after": 0.511
+  },
+  "10_range_compress": {
+   "n": 39074,
+   "freq_pct": 10.06,
+   "dir": "neutral",
+   "up_after": 0.513
+  },
+  "11_momentum_up": {
+   "n": 8111,
+   "freq_pct": 2.09,
+   "dir": "long",
+   "dir_hit_rate": 0.491,
+   "barrier_win": 0.272,
+   "gross_R": -0.3264,
+   "net_R": -0.5547
+  },
+  "12_momentum_down": {
+   "n": 8330,
+   "freq_pct": 2.15,
+   "dir": "short",
+   "dir_hit_rate": 0.47,
+   "barrier_win": 0.255,
+   "gross_R": -0.368,
+   "net_R": -0.5889
+  },
+  "13_pullback_in_uptrend": {
+   "n": 30894,
+   "freq_pct": 7.96,
+   "dir": "long",
+   "dir_hit_rate": 0.512,
+   "barrier_win": 0.314,
+   "gross_R": -0.2414,
+   "net_R": -0.4935
+  },
+  "14_pullback_in_downtrend": {
+   "n": 29301,
+   "freq_pct": 7.55,
+   "dir": "short",
+   "dir_hit_rate": 0.49,
+   "barrier_win": 0.32,
+   "gross_R": -0.2283,
+   "net_R": -0.4666
+  },
+  "15_break_4h_high_+1d_up": {
+   "n": 10479,
+   "freq_pct": 2.7,
+   "dir": "long",
+   "dir_hit_rate": 0.497,
+   "barrier_win": 0.29,
+   "gross_R": -0.2883,
+   "net_R": -0.5133
+  },
+  "16_break_4h_low_+1d_down": {
+   "n": 7685,
+   "freq_pct": 1.98,
+   "dir": "short",
+   "dir_hit_rate": 0.458,
+   "barrier_win": 0.262,
+   "gross_R": -0.3509,
+   "net_R": -0.5588
+  }
+ },
+ "best_pattern": "14_pullback_in_downtrend",
+ "win_rate_trap": {
+  "TP1.5_SL1.0": {
+   "win": 0.32,
+   "net_R": -0.4666
+  },
+  "TP0.5_SL3.0": {
+   "win": 0.687,
+   "net_R": -0.2264
+  },
+  "TP0.25_SL5.0": {
+   "win": 0.857,
+   "net_R": -0.1052
+  }
+ }
+}
