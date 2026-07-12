@@ -31,3 +31,14 @@ Full findings:
 
 Large parquet artifacts are gitignored; rebuild via the reproduction steps
 at the bottom of the report.
+
+## Related work
+
+The follow-up **Research** repo (branch `claude/trading-ml-market-structure-4fhn18`)
+generalises this study into a symbol-agnostic pipeline: multi-provider data
+layer, window-permutation research, market-structure/SMC/pattern feature
+engine, purged walk-forward LightGBM with per-instrument feature relevance,
+CALL/PUT signals with ATR TP/SL at fixed risk:reward, cost-aware backtest,
+and an auto-generated MetaTrader 5 (MQL5) Expert Advisor. Its two-exchange
+validation reached the same conclusion as this study: real but small
+signal, no edge surviving realistic costs on the tested crypto pairs.
